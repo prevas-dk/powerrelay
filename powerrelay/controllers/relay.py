@@ -82,7 +82,7 @@ class RelayController:
         ident = request.match_info['relay']
         line = self.lookup_line(ident)
 
-        return self.json_response(str(line.request.get_values()[0].value))
+        return web.Response(text=str(line.request.get_values()[0].value))
 
 
     async def set_state_old(self,request):
